@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import styles from './App.scss';
 
 const Index = () => <h2>Main</h2>;
 const Subpage = () => <h2>Subpage</h2>;
@@ -7,7 +8,7 @@ const Subpage = () => <h2>Subpage</h2>;
 const App = (props) => {
   return (
     <Router>
-      <div>
+      <div className={styles.app}>
 
         <nav>
           <ul>

@@ -10,9 +10,26 @@ module.exports = {
     rules: [{
       test: /\.js$/,
       exclude: /node_modules/,
-      use: {
-        loader: "babel-loader"
-      }
+      use: 'babel-loader'
+    },{
+      test: /\.css$/,
+      exclude: /node_modules/,
+      use: ['style-loader', 'css-loader'],
+    },{
+      test: /\.scss$/,
+      exclude: /node_modules/,
+      use: [
+        'style-loader',
+        {
+          loader: 'css-loader',
+          options: {
+            modules: true,
+            importLoaders: 1,
+            localIdentName: "[name]_[local]_[hash:base64]",
+          }
+        },
+        'sass-loader'
+      ],
     }]
   },
   plugins: [htmlPlugin],
